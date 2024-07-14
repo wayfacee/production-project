@@ -11,5 +11,6 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     // проксировать запрос через индекс page, через корневую стр.
     // тк мы разраб single page application (1 index.html)
     historyApiFallback: true,
+    hot: true,
   }
 }

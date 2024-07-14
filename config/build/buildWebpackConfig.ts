@@ -7,15 +7,15 @@ import { buildResolvers } from "./buildResolvers";
 import { buildDevServer } from "./buildDevServer";
 
 export function buildWebpackConfig(options: BuildOptions): Configuration {
-  const {paths, mode, isDev} = options;
+  const { paths, mode, isDev } = options;
   return {
     mode,
-  
+
     // старт точка прилож:
     // dirname - корень
     // нескока точек: {RANDOM:  path.resolve(__dirname, 'src', 'index.js ')}
     entry: paths.entry,
-  
+
     // куда и как сборка наш. прилож.
     output: {
       // dinamic name:
@@ -31,9 +31,9 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
       rules: buildLoaders(options),
     },
     // import Component from './Component
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     // где произошла ошибка (source-map)
-    devtool: isDev ? 'inine-source-map' : undefined,
+    devtool: isDev ? 'inline-source-map' : undefined,
     // не будет запуск. дев сервер:
     devServer: isDev ? buildDevServer(options) : undefined,
   }

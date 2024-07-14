@@ -20,6 +20,12 @@
     // common js, как с обычными пакета с помощью import (require() module.export) = common js
     // node (99%) or classic
 
+    "baseUrl": ".",
+    "paths": {
+      // все импорты, экспорт будут идти от папки src
+      "*": ["./src/*"]
+    },
+
 
     "allowSyntheticDefaultImports": true,
     // Если какая-либо библиотека не имеет default import,
