@@ -3,7 +3,7 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 import { fixupConfigRules } from "@eslint/compat";
-
+import i18nPlugin from 'eslint-plugin-i18next';
 
 export default [
   {
@@ -32,6 +32,7 @@ export default [
     },
     plugins: {
       "@typescript-eslint": tseslint.plugin,
+      'i18next': i18nPlugin,
     },
     rules: {
       'react/jsx-indent': [2, 2],
@@ -58,6 +59,8 @@ export default [
       // fdeclaration лучше исп говорит:
       'react/function-component-definition': 'off',
       'no-shadow': 'off',
+
+      "i18next/no-literal-string": 2,
     },
   },
   pluginJs.configs.recommended,
