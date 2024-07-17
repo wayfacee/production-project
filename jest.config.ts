@@ -4,6 +4,7 @@
  */
 
 import type { Config } from 'jest';
+import path from 'path';
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -26,10 +27,6 @@ const config: Config = {
     "\\\\node_modules\\\\"
   ],
 
-  // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: [
-    "node_modules",
-  ],
 
   // An array of file extensions your modules use
   moduleFileExtensions: [
@@ -44,7 +41,13 @@ const config: Config = {
   ],
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: '../../',
+  rootDir: './',
+
+  // An array of directory names to be searched recursively up from the requiring module's location
+  moduleDirectories: [
+    "node_modules",
+    // "<rootDir>"
+  ],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
@@ -52,6 +55,9 @@ const config: Config = {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '\\.(s?css)$': 'identity-obj-proxy',
+    "\\.svg": path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
+    // '^shared/(.*)$': '<rootDir>src/shared/$1',
+    // '^widgets/(.*)$': '<rootDir>src/widgets/$1'
   },
 
   // путь до нод модулей, ошибка с абсолют импортами..
@@ -60,10 +66,13 @@ const config: Config = {
   // The glob patterns Jest uses to detect test files
   testMatch: [
     "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)"
+    "**/?(*.)+(spec|test).[tj]s?(x)",
     // '<rootDir>src/**/*(*.)@(spec/test).[tj]s?(x)'
   ],
-
+  // A list of paths to directories that Jest should use to search for files in
+  // roots: [
+  //   "<rootDir>"
+  // ],
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -154,10 +163,7 @@ const config: Config = {
 
 
 
-  // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
+
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",

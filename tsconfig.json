@@ -18,9 +18,7 @@
     "baseUrl": ".",
     "paths": {
       // все импорты, экспорт будут идти от папки src
-      "*": [
-        "./src/*",
-      ]
+      "*": ["./src/*"]
     },
     
     "allowSyntheticDefaultImports": true,
@@ -51,6 +49,7 @@
     "./src/**/*.tsx",
     "webpack.config.ts",
     "./config/jest/setupTests.ts",
-    // "./config/jest/jest.config.ts",
+    "./config/jest/jestEmptyComponent.tsx",
+    "jest.config.ts",
   ],
 }

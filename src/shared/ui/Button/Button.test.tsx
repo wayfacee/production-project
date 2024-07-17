@@ -1,6 +1,7 @@
-import { Button, ThemeButton } from "./Button";
 import { render, screen } from '@testing-library/react';
-import * as cl from './Button.module.scss';
+import '@testing-library/jest-dom';
+import { Button, ThemeButton } from "./Button";
+import cl from './Button.module.scss';
 
 describe('button', () => {
   test('test with only first param', () => {
@@ -8,8 +9,10 @@ describe('button', () => {
     expect(screen.getByText("TEST")).toBeInTheDocument();
   });
 
-  test('test2', () => {
+  test('test clear theme', () => {
     render(<Button theme={ThemeButton.CLEAR}>TEST</Button>);
-    expect(screen.getByText("TEST")).toHaveClass(cl.clear);
+    const clss = screen.getByText('TEST');
+    expect(clss).toHaveClass(cl.clear);
+    screen.debug();
   });
 });
