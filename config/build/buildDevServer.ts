@@ -5,7 +5,11 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
   return {
     port: options.port,
     // автоматом. открывать стр. с прилож.
-    open: true,
+    open: {
+      app: {
+        name: 'chrome',
+      }
+    },
     
     // при обновлении ошибка:
     // проксировать запрос через индекс page, через корневую стр.

@@ -4,10 +4,12 @@ import tseslint from "typescript-eslint";
 import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 import { fixupConfigRules } from "@eslint/compat";
 import i18nPlugin from 'eslint-plugin-i18next';
+// import jest from 'eslint-plugin-jest';
 
-export default [
+/**@type {import('eslint').Linter.FlatConfig[]} */
+export default tseslint.config(
   {
-    ignores: ["node_modules", "build"],
+    ignores: ["node_modules", "build", 'eslint.config.mjs'],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
@@ -23,7 +25,7 @@ export default [
         ecmaFeatures: {
           jsx: true,
         },
-        project: ["tsconfig.json"],
+        project: ['./tsconfig.json'],
         globals: {
           ...globals.browser,
           __IS_DEV__: true,
@@ -60,10 +62,10 @@ export default [
       'react/function-component-definition': 'off',
       'no-shadow': 'off',
 
-      "i18next/no-literal-string": 2,
+      "i18next/no-literal-string": 1,
     },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...fixupConfigRules(pluginReactConfig),
-];
+);

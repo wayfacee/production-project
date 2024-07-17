@@ -1,6 +1,15 @@
 {
   // {"presets": ["@babel/preset-react"]}
-  "presets": ["@babel/preset-env", "@babel/preset-typescript"],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-react",
+      {
+        // чтобы реакт авоматом. рантайм подставлялся без импортов
+        "runtime": "automatic"
+      }]
+  ],
   "plugins": [
     "i18next-extract"
     // […] your other plugins […]
