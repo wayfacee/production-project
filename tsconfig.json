@@ -51,5 +51,7 @@
     "./config/jest/setupTests.ts",
     "./config/jest/jestEmptyComponent.tsx",
     "jest.config.ts",
+
+    "./config/storybook/**/*.ts",
   ],
 }

@@ -5,7 +5,6 @@ import { RingLoader } from 'react-spinners';
 interface PageLoaderProps {
   className?: string;
 }
-
 export const PageLoader = ({ className }: PageLoaderProps) => {
   return (
     <div className={classNames(cl.PageLoader, {}, [className])}>
