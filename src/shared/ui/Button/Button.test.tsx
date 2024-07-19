@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Button, ThemeButton } from "./Button";
-import * as cl from './Button.module.scss';
+import { Button } from "./Button";
 
 describe('button', () => {
   test('test with only first param', () => {
