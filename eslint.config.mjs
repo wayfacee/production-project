@@ -63,6 +63,8 @@ export default tseslint.config(
       'react/function-component-definition': 'off',
       'no-shadow': 'off',
 
+
+      "react/display-name": "off",
       "i18next/no-literal-string": 1,
     },
   },
