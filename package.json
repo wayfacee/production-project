@@ -13,7 +13,9 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest",
-    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build:storybook": "storybook build -c ./config/storybook"
   },
@@ -107,6 +109,9 @@
     ]
   },
   "loki": {
+    "looks-same": {
+      "ignoreCaret": true
+    },
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",
