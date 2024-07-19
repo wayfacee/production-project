@@ -9,7 +9,7 @@ import i18nPlugin from 'eslint-plugin-i18next';
 /**@type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
   {
-    ignores: ["node_modules", "build", 'eslint.config.mjs'],
+    ignores: ["node_modules", "build"],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
@@ -63,6 +63,7 @@ export default tseslint.config(
       'no-shadow': 'off',
 
       "i18next/no-literal-string": 1,
+      "react/display-name": "off"
     },
   },
   pluginJs.configs.recommended,
