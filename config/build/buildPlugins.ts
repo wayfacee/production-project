@@ -8,7 +8,7 @@ import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
   // порядок не важен
 
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
@@ -22,12 +22,19 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
     }),
-    new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
-    new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
+
+  ];
+
+  if (isDev) {
+    // бесконечно крутится actions:
+    plugins.push(new HotModuleReplacementPlugin());
+    plugins.push(new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
       // чтобы автоматом. не открывалась, в терминале
       // будет сс
       openAnalyzer: false,
-    }),
-  ]
+    }));
+  }
+
+  return plugins;
 }
