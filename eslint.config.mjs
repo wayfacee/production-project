@@ -61,10 +61,10 @@ export default tseslint.config(
       'react/jsx-props-no-spreading': 'warn',
       // fdeclaration лучше исп говорит:
       'react/function-component-definition': 'off',
+      "react/display-name": 0,
       'no-shadow': 'off',
 
 
-      "react/display-name": 0,
       "i18next/no-literal-string": 1,
     },
   },
