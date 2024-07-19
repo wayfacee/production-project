@@ -55,7 +55,7 @@ export default tseslint.config(
       // исп. jsx, но не импорт React
       // начиная с 17-версии не надо:
       "react/jsx-uses-react": "off",
-      // "react/react-in-jsx-scope": "off",
+      "react/react-in-jsx-scope": "off",
       // spread для пропсов всгда плохо
       // иск.: ui comp. button, input etc., обертки
       'react/jsx-props-no-spreading': 'warn',
@@ -70,6 +70,6 @@ export default tseslint.config(
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  ...fixupConfigRules(pluginReactConfig),
-  ...fixupConfigRules(r),
+  // ...fixupConfigRules(pluginReactConfig),
+  // ...fixupConfigRules(r),
 );
