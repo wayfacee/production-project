@@ -64,7 +64,7 @@ export default tseslint.config(
       'no-shadow': 'off',
 
 
-      "react/display-name": "off",
+      "react/display-name": 0,
       "i18next/no-literal-string": 1,
     },
   },
