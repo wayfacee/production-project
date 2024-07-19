@@ -4,7 +4,7 @@ import tseslint from "typescript-eslint";
 import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 import { fixupConfigRules } from "@eslint/compat";
 import i18nPlugin from 'eslint-plugin-i18next';
-import react from 'eslint-plugin-react';
+import react from 'eslint-plugin-react/configs/jsx-runtime.js';
 
 /**@type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
@@ -35,7 +35,6 @@ export default tseslint.config(
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       'i18next': i18nPlugin,
-      react
     },
     rules: {
       'react/jsx-indent': [2, 2],
@@ -55,7 +54,6 @@ export default tseslint.config(
       // исп. jsx, но не импорт React
       // начиная с 17-версии не надо:
       "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
       // spread для пропсов всгда плохо
       // иск.: ui comp. button, input etc., обертки
       'react/jsx-props-no-spreading': 'warn',
@@ -64,7 +62,8 @@ export default tseslint.config(
       'no-shadow': 'off',
 
       "i18next/no-literal-string": 1,
-      "react/display-name": "off"
+      "react/display-name": "off",
+      ...react.rules
     },
   },
   pluginJs.configs.recommended,
