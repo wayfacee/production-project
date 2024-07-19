@@ -4,7 +4,7 @@ type Mods = Record<string, boolean | string>;
 // cls - main class
 // mods - 1) ключ - назв. 2) знач. - boolean
 // additional[]
-export function classNames(cls: string, mods: Mods = {}, additional: string[] = []):string {
+export function classNames(cls: string, mods: Mods = {}, additional: string[] = []): string {
   return [
     cls,
     ...additional.filter(Boolean),

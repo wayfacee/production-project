@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { Sidebar } from './Sidebar';
 import { withTranslation } from 'react-i18next';
 import { renderWithTranslations } from 'shared/lib/tests/renderWithTranslations/renderWithTranslations';
-import cl from './Sidebar.module.scss';
+import * as cl from './Sidebar.module.scss';
 
 describe('sidebar', () => {
   test('test with only first param', () => {
